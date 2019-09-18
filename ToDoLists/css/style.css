@@ -1,0 +1,221 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.container {
+  background: #4a4a4a;
+  padding: 40px;
+  box-sizing: border-box;
+  height: 100vh; }
+  .container .card {
+    width: calc(100% - 250px);
+    margin: 0 auto;
+    background: #fff;
+    position: relative; }
+    .container .card::after {
+      display: block;
+      content: "";
+      position: absolute;
+      background: #e9edf2;
+      opacity: .4;
+      height: 20px;
+      width: 100%;
+      bottom: 0; }
+    .container .card .card-head {
+      background: rgba(29, 152, 214, 0.1);
+      padding: 20px 40px;
+      color: #3d4d65;
+      font-size: 20px; }
+      .container .card .card-head h1 {
+        display: inline-block; }
+      .container .card .card-head .badge {
+        background: #20bbef;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 40px;
+        margin: 0 0 0 20px;
+        display: inline-block;
+        opacity: 0;
+        transition: opacity ease-in-out 200ms; }
+      .container .card .card-head .add-btn {
+        background: #20bbef;
+        color: #fff;
+        font-size: 16px;
+        padding: 10px 20px;
+        font-weight: lighter;
+        text-transform: capitalize;
+        border-radius: 10px;
+        cursor: pointer;
+        outline: none;
+        float: right; }
+      .container .card .card-head::after {
+        content: "";
+        display: block;
+        clear: both; }
+    .container .card .progress {
+      font-size: 18px;
+      padding: 40px;
+      text-transform: capitalize;
+      height: 400px;
+      overflow-y: scroll;
+      position: relative; }
+      .container .card .progress li {
+        margin: 0;
+        color: #3d4d65; }
+        .container .card .progress li::before {
+          display: inline-block;
+          content: "";
+          width: 15px;
+          height: 15px;
+          background: #f38428;
+          border-radius: 50%;
+          z-index: 10;
+          transition: background  .5s; }
+        .container .card .progress li::after {
+          display: block;
+          width: 3px;
+          height: 70px;
+          content: "";
+          background: #f38428;
+          position: relative;
+          left: 6px;
+          top: 0;
+          z-index: 0; }
+        .container .card .progress li:first-child::before, .container .card .progress li:first-child::after {
+          background: linear-gradient(to bottom, #f5474a 0%, #f5474a 100%); }
+        .container .card .progress li:last-child::after {
+          display: none; }
+        .container .card .progress li .complete-btn {
+          box-sizing: border-box;
+          height: 30px;
+          width: 30px;
+          border: 2px solid #20bbef;
+          border-radius: 50%;
+          float: right;
+          outline: none;
+          cursor: pointer; }
+          .container .card .progress li .complete-btn span {
+            display: inline-block;
+            opacity: 0;
+            width: 5px;
+            height: 10px;
+            border: solid #e9edf2;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg); }
+        .container .card .progress li .step-inner {
+          display: inline-block;
+          position: absolute;
+          margin: 0 0 0 30px;
+          font-size: 16px;
+          line-height: 1.6; }
+          .container .card .progress li .step-inner h3 {
+            font-size: 15px; }
+      .container .card .progress .completed-step {
+        color: rgba(61, 77, 101, 0.5); }
+        .container .card .progress .completed-step :first-child {
+          background: #dcd; }
+        .container .card .progress .completed-step:last-child::before {
+          background: #e9edf2; }
+        .container .card .progress .completed-step .step-inner {
+          text-decoration: line-through; }
+        .container .card .progress .completed-step .complete-btn {
+          border: 2px solid #e9edf2;
+          color: #3d4d65; }
+          .container .card .progress .completed-step .complete-btn span {
+            opacity: 1; }
+
+.modal {
+  background: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity ease .7s; }
+  .modal .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px; }
+    .modal .modal-content .modal-head {
+      text-transform: capitalize;
+      background: #20bbef;
+      padding: 20px 30px;
+      color: #fff; }
+      .modal .modal-content .modal-head .close {
+        display: inline-block;
+        position: absolute;
+        top: 10px;
+        right: 30px;
+        font-size: 30px;
+        border: none;
+        background: none;
+        color: #fff;
+        padding: 0;
+        outline: none; }
+    .modal .modal-content .modal-form {
+      background: #fff;
+      padding: 20px 30px; }
+      .modal .modal-content .modal-form label {
+        line-height: 1.5; }
+      .modal .modal-content .modal-form input[type="text"], .modal .modal-content .modal-form input[type="date"] {
+        font-size: 14px;
+        display: block;
+        width: 100%;
+        margin: 0 0 15px 0;
+        border: 1px solid #20bbef;
+        border-radius: 4px;
+        outline: none;
+        height: 35px;
+        padding: 0 20px; }
+      .modal .modal-content .modal-form input[type="radio"] {
+        display: none; }
+      .modal .modal-content .modal-form button {
+        border: none;
+        background: #20bbef;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-size: 14px;
+        display: block;
+        outline: none;
+        cursor: pointer; }
+
+.show {
+  opacity: 1;
+  visibility: visible; }

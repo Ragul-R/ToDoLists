@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <title>To</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <article class="card">
+            <div class="card-head">
+                <h1>To do lists</h1>
+                <span class="badge" id="badge"></span>
+                <button class="add-btn" id="addBtn">new +</button>
+            </div>
+
+            <ul class="progress" id="toDoList">
+
+            </ul>
+
+        </article>
+    </div>
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-head">
+                <h2>add new task</h2>
+                <button class="close" id="close">&times;</button>
+            </div>
+
+            <form class="modal-form">
+                <label for="taskTime">Date</label>
+                <input type="date" id="taskTime" required>
+
+                <label for="taskTitle">Title</label>
+                <input type="text" name="taskTitle" id="taskTitle" placeholder="Add Title" required>
+
+                <button type="button" id="addTask">Add Task</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js" type="text/javascript"></script>
+</body>
+
+</html>

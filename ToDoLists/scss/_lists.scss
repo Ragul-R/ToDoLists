@@ -1,0 +1,176 @@
+.container {
+    background: $background-color;
+    padding: 40px;
+    box-sizing: border-box;
+    height: 100vh;
+    .card {
+        width: calc(100% - 250px);
+        margin: 0 auto;
+        background: #fff;
+        position: relative;
+
+        &::after {
+            display: block;
+            content: "";
+            position: absolute;
+            background: $inactive-color;
+            opacity: .4;
+            height: 20px;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .card-head{
+            background: rgba(#1d98d6, .1);
+            padding: 20px 40px;
+            color: $text-color;
+            font-size: 20px;
+            h1{
+                display: inline-block;
+            }
+            .badge {
+                background: $primary-color;
+                color: #fff;
+                padding: 10px 20px;
+                border-radius: 40px;
+                margin: 0 0 0 20px;
+                display: inline-block;
+                opacity: 0;
+                transition: opacity ease-in-out 200ms;
+            }
+
+            .add-btn {
+                background: $primary-color;
+                color: #fff;
+                font-size: 16px;
+                padding: 10px 20px;
+                font-weight: lighter;
+                text-transform: capitalize;
+                border-radius: 10px;
+                cursor: pointer;
+                outline: none;
+                float: right;
+            }
+
+            &::after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+        }
+
+        .progress {
+            font-size: 18px;
+            padding: 40px;
+            text-transform: capitalize;
+            height: 400px;
+            overflow-y: scroll;
+            position: relative;
+
+            li {
+                margin: 0;
+                color: $text-color;
+
+                &::before {
+                    display: inline-block;
+                    content: "";
+                    width: 15px;
+                    height: 15px;
+                    background: $list-color;
+                    border-radius: 50%;
+                    z-index: 10;
+                    transition: background  .5s;
+                }
+
+                &::after {
+                    display: block;
+                    width: 3px;
+                    height: 70px;
+                    content: "";
+                    background: $list-color;
+                    position: relative;
+                    left: 6px;
+                    top: 0;
+                    z-index: 0;
+                }
+                &:first-child{
+                    &::before,&::after{
+                        background: linear-gradient(to bottom,$list-first 0%, $list-first 100%);
+                    }
+                }
+                &:last-child {
+                    &::before{
+                        
+                    }
+                    &::after {
+                        display: none;
+                    }
+                }
+
+                .complete-btn {
+                    box-sizing: border-box;
+                    height: 30px;
+                    width: 30px;
+                    border:2px solid $primary-color;
+                    border-radius: 50%;
+                    float: right;
+                    outline: none;
+                    cursor: pointer;
+
+                    span {
+                        display: inline-block;
+                        opacity: 0;
+                        width: 5px;
+                        height: 10px;
+                        border: solid $inactive-color;
+                        border-width: 0 2px 2px 0;
+                        transform: rotate(45deg);
+                    }
+                }
+
+                .step-inner {
+                    display: inline-block;
+                    position: absolute;
+                    margin: 0 0 0 30px;
+                    font-size: 16px;
+                    line-height: 1.6;
+
+                    h3 {
+                        font-size: 15px;
+                    }
+                }
+
+
+
+            }
+            
+            
+            .completed-step {
+                color: rgba($text-color, .5);
+                :first-child{
+                    background: #dcd;
+                }
+                &:last-child{
+                    &::before{
+                        background: $inactive-color;
+                    }
+                }
+                .step-inner {
+                    text-decoration: line-through;
+                }
+
+                .complete-btn {
+                    border: 2px solid $inactive-color;
+                    color: $text-color;
+
+                    span {
+                        opacity: 1;
+                    }
+                }
+            }
+
+        }
+    }
+
+}
